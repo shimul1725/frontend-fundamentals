@@ -1,0 +1,160 @@
+/* ==========================================================
+   CSS VARIABLES (custom properties)
+   :root = document er sob theke upore level, tai eikhane
+   define kora variable pura file-e jekhane khushi use kora jay
+   ========================================================== */
+:root {
+  /* --- Colors --- */
+  --color-bg: #f0f2f5;
+  --color-text: #1a1a1a;
+  --color-text-muted: #555;
+  --color-text-soft: #444;
+  --color-white: #ffffff;
+
+  --color-accent: #3b4ecc;      /* main brand color - link, badge text */
+  --color-accent-light: #eef2ff; /* accent er halka shade - badge background */
+
+  /* --- Spacing --- */
+  --card-padding: 24px 30px;
+  --card-gap: 20px;
+  --card-max-width: 400px;
+
+  /* --- Radius --- */
+  --radius-card: 12px;
+  --radius-pill: 20px;
+
+  /* --- Shadow --- */
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* --- Transition --- */
+  --transition-fast: 0.2s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* ---------- Shared card look ----------
+   .bio-card, .about, .skills, .Contact - char'ta card e
+   ekoi background/radius/shadow/width dorkar tai
+   ekta comma-separated selector diye ekbare likhlam */
+.bio-card,
+.about,
+.skills,
+.Contact {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  width: 100%;
+  max-width: var(--card-max-width);
+  margin-bottom: var(--card-gap);
+  padding: var(--card-padding);
+}
+
+/* ---------- Header (Bio card top part) ---------- */
+.bio-card {
+  text-align: center;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.bio-card h1 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.title {
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+/* ---------- About section ---------- */
+.about h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.about p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+}
+
+/* ---------- Skills section ---------- */
+.skills h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ---------- Pill-shaped buttons (skills + contact links) ----------
+   .skill-item ar .contactInfo a - dutai dekhte pill/badge er moto,
+   tai common style ekhane merge kore likhlam */
+.skill-item,
+.contactInfo a {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-fast),
+              transform var(--transition-fast),
+              color var(--transition-fast);
+}
+
+.skill-item {
+  padding: 6px 14px;
+}
+
+.contactInfo a {
+  padding: 8px 18px;
+}
+
+.skill-item:hover,
+.contactInfo a:hover {
+  background: var(--color-accent);
+  color: var(--color-white);
+  transform: translateY(-3px);
+}
+
+/* ---------- Footer (contact section) ---------- */
+.Contact {
+  text-align: center;
+}
+
+.Information h2 {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.contactInfo {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}

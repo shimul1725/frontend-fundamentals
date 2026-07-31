@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Bio Card</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- <header> = document/section er intro part bujhay (semantic meaning) -->
+  <header class="bio-card">
+    <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Profile picture" class="profile-pic" />
+    <h1>Md Moniruzzaman</h1>
+    <p class="title">Full-Stack Developer | MERN Stack</p>
+  </header>
+
+  <!-- <section> = ekta thematic group of content -->
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      CS student based in Dortmund, Germany. I build full-stack applications
+      using the MERN stack and love learning by doing.
+    </p>
+  </section>
+
+  <!-- <section> er bhitore multiple <article> - kারণ প্রতিটা skill ekta
+       independent, self-contained unit hishebe bibechito hote pare -->
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <article class="skill-item">JavaScript</article>
+      <article class="skill-item">React</article>
+      <article class="skill-item">Node.js</article>
+      <article class="skill-item">MongoDB</article>
+      <article class="skill-item">Express</article>
+      <article class="skill-item">Vite</article>
+    </div>
+  </section>
+
+  <!-- <footer> = section/page er closing part, contact info emon jaigay thake -->
+   <footer class="Contact">
+    <section class="Information">
+    <h2>Contact Information</h2>
+    <div class="contactInfo">
+       <a href="https://github.com/shimul1725" target="_blank">GitHub</a>
+      <a href="mailto:shimul.tu.dortmund@gmail.com">Email</a>
+
+    </div>
+    </section>
+  </footer>
+
+</body>
+</html>
