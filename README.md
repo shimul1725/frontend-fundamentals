@@ -11,7 +11,11 @@ Each folder is a self-contained mini-project with its own `README.md`.
 | 01 | [Personal Bio Card](./personal-bio-card) | Semantic HTML, Flexbox, CSS Variables | ✅ Done |
 | 02 | Responsive Pricing Cards | CSS Grid, Media Queries, Hover Effects | 🔜 Planned |
 | 03 | Restaurant Menu Landing Page | Flexbox + Grid combined, Animations | 🔜 Planned |
+<<<<<<< HEAD
 | 04 | [To-Do List App](./To-Do-List-App) | DOM Manipulation, Event Delegation, Array Methods, localStorage | ✅ Done |
+=======
+| 04 | [To-Do List App](./to-do-list-app) | DOM Manipulation, Event Delegation, Array Methods, localStorage | ✅ Done |
+>>>>>>> 79f86c736dcead236ecf0f382bdbd5e5b3fac187
 | 05 | Calculator App | Event Handling, Logic Building | 🔜 Planned |
 | 06 | Quiz App (with Timer) | setInterval/setTimeout, Closures, State Tracking | 🔜 Planned |
 

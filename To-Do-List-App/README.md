@@ -4,7 +4,7 @@ A vanilla JavaScript to-do list app with filtering, persistent storage, and no f
 
 Part of the [Frontend Fundamentals](../) learning series.
 
-## ✨ Features
+## ✨ Features 
 
 - Add, complete, and delete tasks
 - Filter tasks by **All / Active / Completed**
