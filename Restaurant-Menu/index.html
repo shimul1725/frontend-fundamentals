@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MN_BD | Restaurant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========================================================
+       NAVBAR - Flexbox use hobe (ekta row e logo + links)
+       ======================================================== -->
+  <nav class="navbar">
+    <div class="logo">🍝 MN_BD</div>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========================================================
+       HERO SECTION - Flexbox diye center kora, fade-in animation
+       ======================================================== -->
+  <header class="hero">
+    <h1>Authentic Italian Flavors</h1>
+    <p>Handmade pasta, wood-fired pizza, and recipes passed down for generations.</p>
+    <a href="#menu" class="hero-btn">View Menu</a>
+  </header>
+
+  <!-- ========================================================
+       MENU SECTION - Grid diye card layout
+       ======================================================== -->
+  <section id="menu" class="menu-section">
+    <h2>Our Menu</h2>
+    <p class="section-subtitle">Fresh ingredients, crafted with love.</p>
+
+    <div class="menu-grid">
+
+      <article class="menu-card">
+        <img src="images/pizza.jpg" alt="Margherita Pizza" />
+        <div class="menu-card-body">
+          <div class="menu-card-title">
+            <h3>Margherita Pizza</h3>
+            <span class="menu-price">$14</span>
+          </div>
+          <p>San Marzano tomatoes, fresh mozzarella, basil.</p>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <img src="images/Carbonara.jpg" alt="Spaghetti Carbonara" />
+        <div class="menu-card-body">
+          <div class="menu-card-title">
+            <h3>Spaghetti Carbonara</h3>
+            <span class="menu-price">$16</span>
+          </div>
+          <p>Guanciale, egg yolk, pecorino romano, black pepper.</p>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <img src="images/Tiramisu.jpg" alt="Tiramisu" />
+        <div class="menu-card-body">
+          <div class="menu-card-title">
+            <h3>Tiramisu</h3>
+            <span class="menu-price">$8</span>
+          </div>
+          <p>Espresso-soaked ladyfingers, mascarpone cream.</p>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <img src="images/risotto.jpg" alt="Risotto ai Funghi" />
+        <div class="menu-card-body">
+          <div class="menu-card-title">
+            <h3>Risotto ai Funghi</h3>
+            <span class="menu-price">$17</span>
+          </div>
+          <p>Arborio rice, wild mushrooms, parmesan, white wine.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FOOTER - Flexbox diye contact info sajano
+       ======================================================== -->
+  <footer id="contact" class="footer">
+    <p>&copy; 2026 MN_BD by Md Moniruzzaman</p>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">Reservations</a>
+    </div>
+  </footer>
+
+</body>
+</html>
