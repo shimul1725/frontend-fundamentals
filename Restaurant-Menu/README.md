@@ -31,7 +31,7 @@ Part of the [Frontend Fundamentals](../) learning series.
 
 ## 📸 Preview
 
-*(Add a screenshot here — e.g. `![preview](./preview.png)`)*
+![Portfolio Banner](docs/banner.png)
 
 ## 📂 Project Structure
 
