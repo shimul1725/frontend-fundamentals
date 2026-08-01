@@ -1,0 +1,273 @@
+/* ==========================================================
+   DESIGN TOKENS
+   Concept: a 1970s-style precision desk calculator -
+   warm brushed-ivory casing, amber LED display, chunky
+   skeuomorphic keys with real bevel/shadow depth.
+   ========================================================== */
+:root {
+  /* Case (the physical body) */
+  --case-light: #ece3d0;
+  --case: #ddd1b8;
+  --case-shadow: #b9a988;
+
+  /* Display (LED screen) */
+  --display-bg: #1c1f16;
+  --display-bg-2: #10120c;
+  --led-amber: #ff9d23;
+  --led-amber-dim: #c97a19;
+
+  /* Keys */
+  --key-number-top: #fffaf0;
+  --key-number-bottom: #ece0c8;
+  --key-text: #2e2a20;
+
+  --key-function-top: #a89878;
+  --key-function-bottom: #8c7c5e;
+  --key-function-text: #fdf6e8;
+
+  --key-operator-top: #9a4b35;
+  --key-operator-bottom: #7c3a28;
+  --key-operator-text: #fdf1e6;
+
+  --font-display: 'JetBrains Mono', monospace;
+  --font-ui: 'Space Grotesk', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at top, #3a362e, #17150f 70%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  font-family: var(--font-ui);
+}
+
+/* ==========================================================
+   CALCULATOR CASE
+   Layered box-shadows simulate a machined metal/plastic
+   body catching light from above.
+   ========================================================== */
+.calculator {
+  background: linear-gradient(160deg, var(--case-light), var(--case));
+  border-radius: 22px;
+  padding: 22px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Bezel: brand strip, the signature detail ---------- */
+.bezel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 6px 14px;
+}
+
+.bezel-label {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--case-shadow);
+}
+
+.power-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px #4ade80, 0 0 2px #4ade80;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ---------- Display: the LED screen ---------- */
+.display {
+  background: linear-gradient(180deg, var(--display-bg), var(--display-bg-2));
+  border-radius: 12px;
+  padding: 22px 18px 16px;
+  margin-bottom: 18px;
+  text-align: right;
+  min-height: 92px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow:
+    inset 0 3px 8px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.previous-operand {
+  font-family: var(--font-display);
+  color: var(--led-amber-dim);
+  font-size: 15px;
+  min-height: 20px;
+  letter-spacing: 1px;
+}
+
+.current-operand {
+  font-family: var(--font-display);
+  color: var(--led-amber);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 12px rgba(255, 157, 35, 0.55); /* LED glow effect */
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+/* ==========================================================
+   BUTTON GRIDS
+   ========================================================== */
+.buttons {
+  display: grid;
+  gap: 8px;
+}
+
+.main-grid {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 10px;
+}
+
+/* Scientific panel - 5 columns, denser + smaller than main keypad,
+   visually reads as a "secondary" instrument panel */
+.sci-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.btn-sci {
+  background: linear-gradient(180deg, var(--case-light), var(--case));
+  color: #4a4130;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 0;
+  box-shadow:
+    0 2px 0 var(--case-shadow),
+    0 3px 5px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.btn-sci:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 0 0 var(--case-shadow),
+    0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Mode toggle (DEG/RAD) gets its own accent so it reads as a
+   stateful switch, not just another function key */
+.btn-mode {
+  background: linear-gradient(180deg, #d8c9a3, #c2ae7c);
+  color: #3c3320;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Base key: skeuomorphic 3D bevel ---------- */
+.btn {
+  font-family: var(--font-ui);
+  background: linear-gradient(180deg, var(--key-number-top), var(--key-number-bottom));
+  color: var(--key-text);
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 17px 0;
+  cursor: pointer;
+  box-shadow:
+    0 3px 0 var(--case-shadow),
+    0 5px 8px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+/* Pressed state - key "sinks" into the case, shadow shrinks -
+   this is what sells the physical-button illusion */
+.btn:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 0 0 var(--case-shadow),
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn-operator {
+  background: linear-gradient(180deg, var(--key-operator-top), var(--key-operator-bottom));
+  color: var(--key-operator-text);
+  font-weight: 700;
+  box-shadow:
+    0 3px 0 #5e2c1f,
+    0 5px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-operator:active {
+  box-shadow:
+    0 0 0 #5e2c1f,
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.btn-clear,
+.btn-action {
+  background: linear-gradient(180deg, var(--key-function-top), var(--key-function-bottom));
+  color: var(--key-function-text);
+  font-weight: 700;
+  box-shadow:
+    0 3px 0 #6b5d43,
+    0 5px 8px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-clear:active,
+.btn-action:active {
+  box-shadow:
+    0 0 0 #6b5d43,
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn-equals {
+  background: linear-gradient(180deg, var(--key-operator-top), var(--key-operator-bottom));
+  color: var(--key-operator-text);
+  font-weight: 700;
+  box-shadow:
+    0 3px 0 #5e2c1f,
+    0 5px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-equals:active {
+  box-shadow:
+    0 0 0 #5e2c1f,
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* 0 button spans two columns */
+.btn-zero {
+  grid-column: span 2;
+}
+
+/* ---------- Respect reduced-motion preference ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .power-dot {
+    animation: none;
+  }
+}

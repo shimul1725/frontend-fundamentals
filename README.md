@@ -12,7 +12,7 @@ Each folder is a self-contained mini-project with its own `README.md`.
 | 02 | [Responsive Pricing Cards](./Responsive-Pricing-Cards) | CSS Grid, Media Queries, Hover Effects | ✅ Done |
 | 03 | [Restaurant Menu Landing Page (MN_BD)](./Restaurant-Menu) | Flexbox + Grid combined, Animations | ✅ Done |
 | 04 | [To-Do List App](./To-Do-List-App) | DOM Manipulation, Event Delegation, Array Methods, localStorage | ✅ Done |
-| 05 | Calculator App | Event Handling, Logic Building | 🔜 Planned |
+| 05 | [Calculator App (Scientific)](./Calculator-App) | Event Handling, Tokenizing & Recursive Descent Parsing, Logic Building | ✅ Done |
 | 06 | Quiz App (with Timer) | setInterval/setTimeout, Closures, State Tracking | 🔜 Planned |
 
 ## 🎯 Why This Repo Exists

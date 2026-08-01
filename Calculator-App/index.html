@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientific Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="calculator">
+
+    <!-- Brand bezel -->
+    <div class="bezel">
+      <span class="bezel-label">CALC · 100 SCI</span>
+      <span class="power-dot"></span>
+    </div>
+
+    <!-- Display -->
+    <div class="display">
+      <div class="previous-operand" id="previousOperand">DEG</div>
+      <div class="current-operand" id="currentOperand">0</div>
+    </div>
+
+    <!-- ==================================================
+         SCIENTIFIC FUNCTION PANEL (5 columns)
+         ================================================== -->
+    <div class="buttons sci-grid">
+      <button class="btn btn-sci" data-action="paren" data-value="(">(</button>
+      <button class="btn btn-sci" data-action="paren" data-value=")">)</button>
+      <button class="btn btn-sci btn-mode" id="modeToggle" data-action="mode">DEG</button>
+      <button class="btn btn-sci" data-action="constant" data-value="π">π</button>
+      <button class="btn btn-sci" data-action="constant" data-value="e">e</button>
+
+      <button class="btn btn-sci" data-action="function" data-fn="sin">sin</button>
+      <button class="btn btn-sci" data-action="function" data-fn="cos">cos</button>
+      <button class="btn btn-sci" data-action="function" data-fn="tan">tan</button>
+      <button class="btn btn-sci" data-action="function" data-fn="log">log</button>
+      <button class="btn btn-sci" data-action="function" data-fn="ln">ln</button>
+
+      <button class="btn btn-sci" data-action="function" data-fn="√">√</button>
+      <button class="btn btn-sci" data-action="operator" data-operator="^">^</button>
+      <button class="btn btn-sci" data-action="factorial">x!</button>
+      <button class="btn btn-sci" data-action="operator" data-operator="%">%</button>
+      <button class="btn btn-sci" data-action="ans">Ans</button>
+    </div>
+
+    <!-- ==================================================
+         STANDARD KEYPAD (4 columns)
+         ================================================== -->
+    <div class="buttons main-grid">
+      <button class="btn btn-clear" data-action="clear">AC</button>
+      <button class="btn btn-action" data-action="delete">⌫</button>
+      <button class="btn btn-action" data-action="negate">±</button>
+      <button class="btn btn-operator" data-action="operator" data-operator="÷">÷</button>
+
+      <button class="btn" data-action="number">7</button>
+      <button class="btn" data-action="number">8</button>
+      <button class="btn" data-action="number">9</button>
+      <button class="btn btn-operator" data-action="operator" data-operator="×">×</button>
+
+      <button class="btn" data-action="number">4</button>
+      <button class="btn" data-action="number">5</button>
+      <button class="btn" data-action="number">6</button>
+      <button class="btn btn-operator" data-action="operator" data-operator="-">−</button>
+
+      <button class="btn" data-action="number">1</button>
+      <button class="btn" data-action="number">2</button>
+      <button class="btn" data-action="number">3</button>
+      <button class="btn btn-operator" data-action="operator" data-operator="+">+</button>
+
+      <button class="btn btn-zero" data-action="number">0</button>
+      <button class="btn" data-action="decimal">.</button>
+      <button class="btn btn-equals" data-action="equals">=</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
