@@ -1,0 +1,220 @@
+:root {
+  --color-bg: #f4f5f7;
+  --color-white: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #6b7280;
+  --color-accent: #4f6ef7;
+  --color-border: #e5e7eb;
+  --radius: 14px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 60px 20px;
+}
+
+.page {
+  max-width: 1000px;
+  margin: 0 auto 70px; /* niche 70px gap - dutu section stack hole jate close-lagbe na */
+  text-align: center;
+}
+
+.page:last-child {
+  margin-bottom: 0; /* sesh section er niche extra gap lagbe na */
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  margin-bottom: 40px;
+}
+
+/* ==========================================================
+   CSS GRID - main layout
+   3-ta card ke row e rakhbo, equal width diye.
+   repeat(3, 1fr) mane: 3-ta column, protyekta 1 fraction
+   (mane equal space) nibe available width theke
+   ========================================================== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start; /* card gulor height alada hole upore align thakbe */
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px 24px;
+  text-align: left;
+  position: relative; /* .badge ke position: absolute diye bosanor jonno dorkar */
+
+  /* transition - hover korle smooth-vabe uthbe */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ==========================================================
+   HOVER EFFECT
+   Card e mouse gele upore uthbe ar shadow gaঢ় hobe -
+   "lifting" effect, deep-tar মনে হবে card ta clickable
+   ========================================================== */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--color-muted);
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.price span {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.features li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  color: #444;
+}
+
+.features li::before {
+  content: "✓ ";
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.card button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-accent);
+  background: transparent;
+  color: var(--color-accent);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.card button:hover {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* ---------- Featured card (middle plan) ---------- */
+.card.featured {
+  background: var(--color-accent);
+  color: white;
+  border-color: var(--color-accent);
+  transform: scale(1.05); /* aktu boro dekhabo, jate chok pore */
+}
+
+.card.featured:hover {
+  transform: scale(1.05) translateY(-8px);
+}
+
+.card.featured h2,
+.card.featured .price span,
+.card.featured .features li {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.card.featured .features li {
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+.card.featured .features li::before {
+  color: white;
+}
+
+.card.featured button {
+  background: white;
+  color: var(--color-accent);
+  border-color: white;
+}
+
+.card.featured button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  background: #fbbf24;
+  color: #1a1a1a;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ==========================================================
+   MEDIA QUERIES - responsive breakpoints
+   Screen chhoto hole grid column kombe, card gulo stack hoye
+   niche niche jabe - ekhane 2 stage e break kori
+   ========================================================== */
+
+/* Tablet: 768px er niche - 3 column theke 2 column e nambe */
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Featured card 2-column grid e pura row jure thakbe,
+     jate layout ta odd na lage */
+  .card.featured {
+    grid-column: span 2;
+    transform: scale(1); /* mobile e scale effect off, complex hoye jay */
+  }
+
+  .card.featured:hover {
+    transform: translateY(-8px);
+  }
+}
+
+/* Mobile: 480px er niche - shob card ekta column e stack hobe */
+@media (max-width: 480px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card.featured {
+    grid-column: span 1;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
