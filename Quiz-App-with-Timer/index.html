@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="quiz-container">
+
+    <!-- ========================================================
+         SCREEN 1: Start screen
+         ======================================================== -->
+    <div class="screen start-screen" id="startScreen">
+      <h1>Web Dev Quiz 🧠</h1>
+      <p>12 questions · 15 seconds each · Test your fundamentals!</p>
+      <button class="btn-primary" id="startBtn">Start Quiz</button>
+    </div>
+
+    <!-- ========================================================
+         SCREEN 2: Quiz screen (initially hidden)
+         ======================================================== -->
+    <div class="screen quiz-screen hidden" id="quizScreen">
+
+      <div class="quiz-header">
+        <span id="questionCounter">Question 1/5</span>
+        <span id="scoreDisplay">Score: 0</span>
+      </div>
+
+      <!-- Timer progress bar - JS diye width shrink hobe -->
+      <div class="timer-bar-track">
+        <div class="timer-bar-fill" id="timerFill"></div>
+      </div>
+      <span class="timer-text" id="timerText">15s</span>
+
+      <h2 id="questionText">Question text here</h2>
+
+      <div class="options" id="optionsContainer">
+        <!-- JS diye 4-ta option button ekhane render hobe -->
+      </div>
+    </div>
+
+    <!-- ========================================================
+         SCREEN 3: Result screen (initially hidden)
+         ======================================================== -->
+    <div class="screen result-screen hidden" id="resultScreen">
+      <h1>Quiz Complete! 🎉</h1>
+      <p class="final-score" id="finalScore">0/5</p>
+      <p class="result-message" id="resultMessage"></p>
+      <button class="btn-primary" id="restartBtn">Try Again</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
